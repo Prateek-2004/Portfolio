@@ -1,0 +1,211 @@
+@import 'utilities.css'; 
+
+:root {
+    --primary: #3DCFD3;
+    --dark: #161616;
+    --white: #FFFFFF;
+    --ternary: #898989;
+    --light: #F2F2F2;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    font-weight: 200;
+    font-size: large;
+    background-color: black; /* Set the entire page background to black */
+    color: var(--white); /* Default text color to white for visibility */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Ensures content flows naturally down */
+    min-height: 100vh; /* Ensures the body spans the full height of the viewport */
+}
+
+header {
+    background: var(--dark);
+    position: sticky; /* Keeps the navbar at the top during scroll */
+    top: 0;
+    z-index: 10; /* Ensures it stays above other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: shadow for visual separation */
+    height: 60px; /* Set height for navbar */
+}
+
+nav {
+    display: flex;
+    align-items: center; /* Ensures vertical centering of children */
+    justify-content: flex-start; /* Aligns items to the left */
+    padding: 0 20px;
+    height: 60px; /* Ensure nav has the same height as header */
+}
+
+nav .left-opts {
+    display: flex;
+    align-items: center; /* Vertically center the options */
+    justify-content: center; /* Horizontally center the links inside */
+    gap: 50px; /* Spacing between links */
+    transform: translateY(1.5px) translateX(51.5px);
+    margin: 0 auto; /* Centers .left-opts horizontally inside nav */
+}
+
+nav .left-opts a {
+    color: var(--white);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+nav .left-opts a:hover {
+    color: var(--primary);
+}
+
+
+.right-button {
+    position: absolute;
+    right: 20px; /* Positions the button to the far right */
+    top: 50%; /* Centers the button vertically */
+    transform: translateY(-50%); /* Adjusts for accurate centering */
+}
+
+.right-button button {
+    background: var(--primary);
+    color: var(--dark);
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.right-button button:hover {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+/*NAVIGATION BAR ENDS*/
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height for vertical centering */
+    margin-top: 60px; /* Adjust for fixed header */
+}
+
+.centre-div {
+    padding: 20px;
+    text-align: center;
+}
+
+.centre-div h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.links {
+    margin-bottom: 30px;
+}
+
+.btn-link {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 15px;
+    background-color: var(--primary);
+    color: var(--dark);
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #0007cb;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.btn-link:hover {
+    background-color: #00FFFF;
+    box-shadow: 0 0 10px 5px rgba(0, 255, 255, 0.7); /* Glowing effect */
+}
+
+.achievement-row {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: space-between; /* Space items evenly */
+    margin-bottom: 15px; /* Spacing between rows */
+    text-transform: uppercase;
+}
+
+.achievement-row h3 {
+    flex: 1; /* Take available space */
+    text-align: left; /* Align title to the left */
+    color: var(--white);
+}
+
+.achievement-row h3 span{
+    color: var(--primary);
+}
+
+.achievement-row button {
+    flex: 0; /* Prevent the button from growing */
+    padding: 0.5rem 1rem;
+    background: var(--primary);
+    border: none;
+    color: var(--dark);
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.achievement-row button:hover {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+/* Tools Expertise and Coding Skills */
+h2 {
+    font-size: 28px;
+    margin: 20px 0 20px;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.tools, .coding-skills {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Adjust gap between images */
+    flex-wrap: wrap;
+}
+
+.circle-img {
+    width: 120px; /* Smaller size */
+    height: 120px; /* Smaller size */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.circle-img:hover {
+    transform: scale(1.1);
+    background-color: #00FFFF; /* Cyan background on hover */
+    box-shadow: 0 0 10px 5px rgba(0, 255, 255, 0.7); /* Glowing effect */
+}

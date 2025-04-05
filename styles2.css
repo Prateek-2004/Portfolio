@@ -1,0 +1,219 @@
+@import 'utilities.css'; 
+
+:root {
+    --primary: #3DCFD3;
+    --dark: #161616;
+    --white: #FFFFFF;
+    --ternary: #898989;
+    --light: #F2F2F2;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-weight: 200;
+    font-size: large;
+    background-color: black; /* Set the entire page background to black */
+    color: var(--white); /* Default text color to white for visibility */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Ensures content flows naturally down */
+    min-height: 100vh; /* Ensures the body spans the full height of the viewport */
+}
+
+header {
+    background: var(--dark);
+    position: sticky; /* Keeps the navbar at the top during scroll */
+    top: 0;
+    z-index: 10; /* Ensures it stays above other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: shadow for visual separation */
+    height: 60px; /* Set height for navbar */
+}
+
+nav {
+    display: flex;
+    align-items: center; /* Ensures vertical centering of children */
+    justify-content: flex-start; /* Aligns items to the left */
+    padding: 0 20px;
+    height: 60px; /* Ensure nav has the same height as header */
+}
+
+nav .left-opts {
+    display: flex;
+    align-items: center; /* Vertically center the options */
+    justify-content: center; /* Horizontally center the links inside */
+    gap: 50px; /* Spacing between links */
+    transform: translateY(1.5px) translateX(51.5px);
+    margin: 0 auto; /* Centers .left-opts horizontally inside nav */
+}
+
+nav .left-opts a {
+    color: var(--white);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+nav .left-opts a:hover {
+    color: var(--primary);
+}
+
+.right-button {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10; /* Ensure the button stays on top of other elements */
+}
+
+.right-button button {
+    background: var(--primary);
+    color: var(--dark);
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.right-button button:hover {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+/*NAVIGATION BAR ENDS*/
+
+/* About Section */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+.about-container .left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-container .left img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Optional: Image shadow */
+}
+
+.about-container .right {
+    flex: 1;
+    text-align: left;
+    padding: 20px;
+}
+
+.about-container .right h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: #FFFFFF;
+}
+
+.about-container .right h1 span{
+    color: #3DCFD3;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    opacity: 0; /* Start hidden */
+    animation: fadeInUp 1s ease-out;
+    animation-delay: 0.2s; /* Add 2-second delay */
+    animation-fill-mode: forwards; /* Retain end state */
+}
+
+
+.about-container .right p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #898989;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column; /* Stack content vertically on small screens */
+    }
+
+    .about-container .left,
+    .about-container .right {
+        width: 100%;
+    }
+
+    .about-container .right {
+        text-align: center;
+    }
+}
+
+/* Social Media Links Styling */
+.social-links {
+    display: flex;
+    gap: 15px;
+    justify-content: center; /* Centers the social media icons */
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: inline-block;
+    width: 50px;  /* Set the size of the circles */
+    height: 50px; /* Set the size of the circles */
+    border-radius: 50%; /* Make the images circular */
+    overflow: hidden; /* Ensure the images do not overflow outside the circle */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    background-color: transparent; /* Initial background */
+}
+
+.social-links a:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    background-color: #00FFFF; /* Cyan background on hover */
+    box-shadow: 0 0 10px 5px rgba(0, 255, 255, 0.7); /* Glowing effect */
+}
+
+.social-links a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the circle */
+    transition: opacity 0.3s ease; /* Smooth transition for opacity */
+}
+
+/* Optional: Add some custom hover effects to images */
+.social-links a:hover img {
+    opacity: 0.8; /* Slightly dim the image on hover */
+}

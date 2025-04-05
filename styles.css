@@ -1,0 +1,258 @@
+@import 'utilities.css'; 
+
+:root {
+    --primary: #3DCFD3;
+    --dark: #161616;
+    --white: #FFFFFF;
+    --ternary: #898989;
+    --light: #F2F2F2;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-weight: 200;
+    font-size: large;
+    background-color: black; /* Set the entire page background to black */
+    color: var(--white); /* Default text color to white for visibility */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Ensures content flows naturally down */
+    min-height: 100vh; /* Ensures the body spans the full height of the viewport */
+}
+
+header {
+    background: var(--dark);
+    position: sticky; /* Ensures the navbar stays at the top during scroll */
+    top: 0;
+    z-index: 10; /* Ensures it stays above other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: shadow for visual separation */
+    height: 60px; /* Reduced height of the navbar */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the left-opts horizontally */
+    padding: 0 20px;
+    height: 50px; /* Matches the header height */
+}
+
+nav .left-opts {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the links inside */
+    gap: 50px; /* Spacing between links */
+    transform: translateY(6px);
+}
+
+nav .left-opts a {
+    color: var(--white);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+nav .left-opts a:hover {
+    color: var(--primary);
+}
+
+.right-button {
+    position: absolute;
+    right: 20px; /* Positions the button to the far right */
+    top: 50%; /* Centers the button vertically */
+    transform: translateY(-50%); /* Adjusts for accurate centering */
+}
+
+.right-button button {
+    background: var(--primary);
+    color: var(--dark);
+    text-transform: uppercase;
+    padding: 8.7px 19.6px;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.right-button button:hover {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+/*NAVIGATION BAR ENDS*/
+
+.Hero {
+    margin-top: 50px; /* Space below the reduced navbar */
+    background-color: black; /* Black background for the Hero section */
+    padding: 50px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    color: var(--white);
+    height: auto; /* Adjusted to auto to ensure natural layout */
+}
+
+/* Hero Left Section: Image */
+.Hero .left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Ensure the content is positioned correctly */
+    margin-top: -650px; /* Lift the image upwards */
+}
+
+.Hero .left .image-container {
+    width: 100%;
+    position: relative;
+    perspective: 1000px; /* Enables 3D space for flip effect */
+}
+
+.Hero .left .image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px; /* Optional styling */
+    backface-visibility: hidden; /* Prevents backface from showing */
+    transition: transform 1s ease; /* Smooth flip effect */
+}
+
+/* The front image */
+.Hero .left .image-container .front {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* The back image (initially hidden until flipped) */
+.Hero .left .image-container .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(180deg); /* Initially rotate the back image to hide */
+}
+
+/* Flip effect when hovering */
+.Hero .left .image-container:hover .front {
+    transform: rotateY(180deg); /* Flip the front image */
+}
+
+.Hero .left .image-container:hover .back {
+    transform: rotateY(0deg); /* Show the back image */
+}
+
+/* Hero Right Section: Text */
+.Hero .right {
+    flex: 1;
+    text-align: left;
+    color: var(--white);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Ensures the text is vertically centered */
+}
+
+.Hero .right h6 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--ternary); /* Subtle secondary text */
+}
+
+.Hero .right h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    color: var(--white);
+}
+
+.Hero .right span {
+    color: var(--primary); /* Highlighted text */
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.Hero .right p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: var(--ternary);
+    opacity: 0; /* Initially invisible */
+    transform: translateY(20px); /* Start with a slight downward position */
+    animation: fadeInUp 1.5s ease-out forwards; /* Apply the fade-in and slide-up animation */
+    visibility: visible; /* Ensure it’s visible after the animation completes */
+}
+
+.Hero .right button {
+    background: var(--primary);
+    color: var(--dark);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.Hero .right button:hover {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    box-shadow: 0 0 20px 5px rgba(61, 207, 211, 0.7); /* Cyan glow effect */
+    transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .Hero {
+        flex-direction: column; /* Stack content vertically on small screens */
+        text-align: center;
+    }
+
+    .Hero .left, .Hero .right {
+        flex: unset;
+        width: 100%;
+    }
+
+    .Hero .right {
+        padding-top: 20px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav .left-opts, .right-button {
+        justify-content: center;
+    }
+}
+
